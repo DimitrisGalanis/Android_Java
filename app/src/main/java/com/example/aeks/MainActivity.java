@@ -27,6 +27,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void random(View view) {
+
+        // Intent intent= new Intent(this,Cards.class);
+        //  startActivity(intent);
+    }
+
+
     /*
     Λειτουργια/ onClick μέθοδος του κουμπιου stats για προβολή των στατιστικών του χρήστη
      */
