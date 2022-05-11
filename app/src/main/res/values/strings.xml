@@ -1,3 +1,13 @@
 <resources>
+    <!--Onomata/description apo views arxikis-main activity-->
+
     <string name="app_name">AEKS</string>
+    <string name="appWelcome">Welcome</string>
+    <string name="play">PLAY</string>
+    <string name="accounts">ACCOUNTS</string>
+    <string name="stats">STATS</string>
+    <!--Onomata/descriptions apo card activity-->
+    <string name="descriptionOfSecondCard">Description</string>
+    <string name="descriptionOfFirstCard">Description</string>
+    <string name="descriptionOfThirdCard">Description</string>
 </resources>

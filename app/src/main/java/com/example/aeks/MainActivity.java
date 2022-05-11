@@ -22,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
      */
     public void playbutton(View view) {
 
-       // Intent intent= new Intent(this,Cards.class);
-      //  startActivity(intent);
+        Intent intent= new Intent(this,Cardlist.class);
+        startActivity(intent);
     }
 
 
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void AccountButton(View view) {
 
-       // Intent it = new Intent(this,Signin.class);
-       // startActivity(it);
+        Intent it = new Intent(this,Signin.class);
+        startActivity(it);
     }
 }
