@@ -4,9 +4,12 @@ package com.example.aeks;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.material.button.MaterialButton;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,35 +17,25 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        TextView username =(TextView) findViewById(R.id.username);
+        TextView password =(TextView) findViewById(R.id.password);
+        MaterialButton loginBTN = (MaterialButton) findViewById(R.id.login_BTN);
+
+        loginBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(username.getText().toString().equals("admin") && password.getText().toString().equals("admin"))
+                {
+                    Toast.makeText(MainActivity.this, "LOGIN SUCCESSFUL !!!", Toast.LENGTH_SHORT).show();
+//                    Intent intent = new Intent(this,Cards.class);
+//                    startActivity(intent);
+                }
+                else
+                    Toast.makeText(MainActivity.this,"LOGIN FAILED !!!",Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
-    /*
-    Λειτουργια/ onClick μεθοδος του κουμπιου PLAY, μεσω αυτου γίνεται μετάβαση στο activity με τις κάρτες
-    για επιλογή παιχνιδιού
-     */
-    public void playbutton(View view) {
 
-       // Intent intent= new Intent(this,Cards.class);
-      //  startActivity(intent);
-    }
-
-
-    public void random(View view) {
-
-        // Intent intent= new Intent(this,Cards.class);
-        //  startActivity(intent);
-    }
-
-
-    /*
-    Λειτουργια/ onClick μέθοδος του κουμπιου stats για προβολή των στατιστικών του χρήστη
-     */
-    public void statsButton(View view) {
-    }
-
-    public void AccountButton(View view) {
-
-       // Intent it = new Intent(this,Signin.class);
-       // startActivity(it);
-    }
 }

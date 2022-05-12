@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">AEKS</string>
+    <string name="textView">Sign in</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="loginBTN">Log in</string>
 </resources>
