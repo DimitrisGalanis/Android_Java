@@ -4,6 +4,7 @@ package com.example.aeks;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -28,8 +29,7 @@ public class MainActivity extends AppCompatActivity {
                 if(username.getText().toString().equals("admin") && password.getText().toString().equals("admin"))
                 {
                     Toast.makeText(MainActivity.this, "LOGIN SUCCESSFUL !!!", Toast.LENGTH_SHORT).show();
-//                    Intent intent = new Intent(this,Cards.class);
-//                    startActivity(intent);
+                    redirect(v);
                 }
                 else
                     Toast.makeText(MainActivity.this,"LOGIN FAILED !!!",Toast.LENGTH_SHORT).show();
@@ -37,5 +37,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    public void redirect(View v){
+//        Intent intent = new Intent(this,sth.class);
+//        startActivity(intent);
+    }
 
 }
