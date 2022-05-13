@@ -4,4 +4,8 @@
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="loginBTN">Log in</string>
+
+    <string name="tryBTN">Check Word</string>
+
+
 </resources>

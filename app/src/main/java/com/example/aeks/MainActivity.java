@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.net.wifi.hotspot2.pps.Credential;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -52,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         loginBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(username.getText().toString().equals("admin") && password.getText().toString().equals("admin"))
+                if(checkCredential(username,password))
                 {
                     Toast.makeText(MainActivity.this, "LOGIN SUCCESSFUL !!!", Toast.LENGTH_SHORT).show();
                     redirect(v);
@@ -68,4 +69,12 @@ public class MainActivity extends AppCompatActivity {
        Intent intent = new Intent(this,Wordle.class);
        startActivity(intent);
     }
+
+
+    private boolean checkCredential(TextView username , TextView password)
+    {
+       return true;
+//       return (username.getText().toString().equals("admin") && password.getText().toString().equals("admin"));
+    }
+
 }
