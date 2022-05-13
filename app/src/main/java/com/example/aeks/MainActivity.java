@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void redirect(View v){
+        // test
 //        Intent intent = new Intent(this,sth.class);
 //        startActivity(intent);
     }
