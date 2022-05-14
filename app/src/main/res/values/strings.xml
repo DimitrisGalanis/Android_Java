@@ -1,7 +1,11 @@
 <resources>
-    <!--Onomata/description apo views arxikis-main activity-->
-
     <string name="app_name">AEKS</string>
+    <string name="textView">Sign in</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="loginBTN">Log in</string>
+
+    <string name="tryBTN">Check Word</string>
     <string name="appWelcome">Welcome</string>
     <string name="play">PLAY</string>
     <string name="accounts">ACCOUNTS</string>

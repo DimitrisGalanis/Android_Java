@@ -20,6 +20,9 @@
             android:name=".Cardlist"
             android:exported="false" />
         <activity
+            android:name=".Wordle"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

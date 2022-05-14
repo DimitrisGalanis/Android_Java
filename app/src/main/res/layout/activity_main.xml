@@ -1,98 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/imgg"
+    android:background="@drawable/background_img"
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/tv1"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/appWelcome"
-        android:textAlignment="center"
-        android:textColor="#B3E5FC"
-        android:textSize="60sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.01" />
+        android:id="@+id/Sign_in"
+        android:text="@string/textView"
+        android:textColor="@color/white"
+        android:textSize="38sp"
+        android:textStyle="bold"
+        android:layout_margin="40sp"
+        android:gravity="center"/>
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Sign_in"
+        android:layout_marginTop="0dp"
+        android:autofillHints="username"
+        android:background="#30ffffff"
+        android:drawableStart="@drawable/icon_img"
+        android:drawablePadding="20dp"
+        android:hint="@string/username"
+        android:inputType="none"
+        android:padding="20dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="20sp" />
 
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/password"
+        android:layout_below="@id/username"
+        android:background="#30ffffff"
+        android:hint="@string/password"
+        android:textSize="20sp"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
+        android:layout_marginTop="20dp"
+        android:padding="20dp"
+        android:drawableStart="@drawable/arrow"
+        android:drawablePadding="20dp"
+        android:inputType="textPassword"
+        android:autofillHints="password" />
 
-    <!-- Button για αλλαγή γλώσσας. 'Ισως αλλαξει σε κουμπι για ρυθμισεις-->
-    <Button
-        android:id="@+id/settingButton"
+
+    <com.google.android.material.button.MaterialButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="40dp"
-        app:icon="@drawable/language"
-        app:iconPadding="0dp"
-        app:iconTintMode="src_in"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bstat"
-        app:layout_constraintVertical_bias="0.645"
-        tools:ignore="SpeakableTextPresentCheck" />
+        android:id="@+id/login_BTN"
+        android:layout_below="@id/password"
+        android:text="@string/loginBTN"
+        android:backgroundTint="#249ED3"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        />
 
-
-
-    <!-- Κουμπι για μεταβαση στο activity με τις καρτες για επιλογή παιχνιδιού-->
-    <Button
-        android:id="@+id/bplay"
-        android:layout_width="240dp"
-        android:layout_height="wrap_content"
-        android:onClick="playbutton"
-        android:text="@string/play"
-        android:textSize="34sp"
-        app:cornerRadius="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/bmode"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="@+id/tv1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
-
-
-
-    <!-- Button για αλλαγή/διαχειρηση account -->
-    <Button
-        android:id="@+id/bmode"
-        android:layout_width="240dp"
-        android:layout_height="wrap_content"
-        android:onClick="AccountButton"
-        android:text="@string/accounts"
-        android:textSize="34sp"
-        app:cornerRadius="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/bstat"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bplay" />
-
-
-
-    <!-- Button για προβολή στατιστικών του χρήστη-->
-    <Button
-        android:id="@+id/bstat"
-        android:layout_width="240dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:onClick="statsButton"
-        android:text="@string/stats"
-        android:textSize="34sp"
-        app:cornerRadius="24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bmode" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
