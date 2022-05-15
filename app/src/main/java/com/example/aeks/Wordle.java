@@ -7,10 +7,7 @@ import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.KeyEvent;
-import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class Wordle extends AppCompatActivity {
 
@@ -83,13 +80,13 @@ public class Wordle extends AppCompatActivity {
 
                 @Override // Sets focus on next Box
                 public void afterTextChanged(Editable editable) {
-                    Integer letterLength = array[finalI].getText().length();
+                    int letterLength = array[finalI].getText().length();
                     if ( letterLength >= 1 )
                     {
                         array[finalI + 1].requestFocusFromTouch();
                         array[finalI + 1].setFocusableInTouchMode(true);
 
-                        if (finalI%5==0 && finalI>=5)
+                        if (finalI>=5 && finalI%5==0)
                             testingLetters(finalI, array ,test);
                     }
                 }
