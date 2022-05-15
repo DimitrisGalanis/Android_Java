@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/imgg"
+    tools:context=".Menu">
+
+
+    <!-- Button για αλλαγή γλώσσας. 'Ισως αλλαξει σε κουμπι για ρυθμισεις-->
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:contentDescription="Welcome"
+        android:focusable="true"
+        android:text="@string/appWelcome"
+        android:textAlignment="center"
+        android:textColor="#C0E4CF"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.01" />
+
+    <Button
+        android:id="@+id/settingButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="40dp"
+        app:icon="@drawable/language"
+        app:iconPadding="0dp"
+        app:iconTintMode="src_in"
+        android:focusable="true"
+        android:contentDescription="Change language"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bstat"
+        app:layout_constraintVertical_bias="0.645"
+        />
+
+
+
+    <!-- Κουμπι για μεταβαση στο activity με τις καρτες για επιλογή παιχνιδιού-->
+    <Button
+        android:id="@+id/bplay"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:contentDescription="Proceed to chooce game mode"
+        android:focusable="true"
+        android:onClick="playbutton"
+        android:text="@string/play"
+        android:textSize="34sp"
+        app:cornerRadius="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/bmode"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/tv1"
+        app:layout_constraintTop_toTopOf="@id/tv1"
+        app:layout_constraintVertical_bias="0.53"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+
+
+    <!-- Button για αλλαγή/διαχειρηση account -->
+    <Button
+        android:id="@+id/bmode"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:contentDescription="Sing in to your account or create a new one"
+        android:focusable="true"
+        android:onClick="AddAWordButton"
+        android:text="@string/Add"
+        android:textSize="34sp"
+        app:cornerRadius="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/bstat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bplay" />
+
+
+
+    <!-- Button για προβολή στατιστικών του χρήστη-->
+    <Button
+        android:id="@+id/bstat"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:onClick="statsButton"
+        android:text="@string/stats"
+        android:contentDescription="View your game statistics"
+        android:focusable="true"
+        android:textSize="34sp"
+        app:cornerRadius="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bmode" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

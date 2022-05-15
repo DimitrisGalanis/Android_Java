@@ -8,7 +8,7 @@
     <string name="tryBTN">Check Word</string>
     <string name="appWelcome">Welcome</string>
     <string name="play">PLAY</string>
-    <string name="accounts">ACCOUNTS</string>
+    <string name="Add">ADD A WORD</string>
     <string name="stats">STATS</string>
     <!--Onomata/descriptions apo card activity-->
     <string name="descriptionOfSecondCard">Description</string>

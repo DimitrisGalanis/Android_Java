@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Wordle"
-    android:background="@drawable/bgw">
+    android:background="@drawable/imf">
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -531,6 +531,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#3D8F72"
         android:padding="10sp"
+
         android:text="@string/tryBTN"
         android:layout_marginTop="485dp"
         app:layout_constraintEnd_toEndOf="parent"

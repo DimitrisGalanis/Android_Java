@@ -14,10 +14,10 @@
         android:theme="@style/Theme.AEKS"
         tools:targetApi="31">
         <activity
-            android:name=".Signin"
+            android:name=".AddAWord"
             android:exported="false" />
         <activity
-            android:name=".Cardlist"
+            android:name=".Menu"
             android:exported="false" />
         <activity
             android:name=".Wordle"

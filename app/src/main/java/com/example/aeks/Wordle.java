@@ -2,24 +2,30 @@ package com.example.aeks;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.concurrent.ThreadLocalRandom;
+
+
+
 public class Wordle extends AppCompatActivity {
 
+    private int found;
     EditText Et11, Et12, Et13, Et14, Et15;
     EditText Et21, Et22, Et23, Et24, Et25;
     EditText Et31, Et32, Et33, Et34, Et35;
     EditText Et41, Et42, Et43, Et44, Et45;
     EditText Et51, Et52, Et53, Et54, Et55;
     EditText Et61, Et62, Et63, Et64, Et65;
+    WordsDatabase word=new WordsDatabase(this);
 
 
     @Override
@@ -66,6 +72,8 @@ public class Wordle extends AppCompatActivity {
         array[30] = Et65 = findViewById(R.id.word6_5);
 
         //TODO Get Word from DB
+        //int randomNum = ThreadLocalRandom.current().nextInt(0, 3);
+       // Toast.makeText(this,word.generateWord(1),Toast.LENGTH_LONG).show();
         String test = "ABCDE";
 
         for (int i=1 ; i < array.length-5 ; ++i)
@@ -98,19 +106,36 @@ public class Wordle extends AppCompatActivity {
     }
 
     private void testingLetters(int index , EditText[] v , String test){
+
+         found=0;
         for ( int j = 0 ; j<test.length() ; ++j)
         {
+
+
             String temp = Character.toString(test.charAt(j));
             for (int i = 0; i < 5 ; ++i)
             {
                 if ( v[index + i - 4].getText().toString().equals(temp) && i!=j)
                 {
+                    found=0;
+
                     v[index + i - 4].getBackground().setColorFilter(Color.rgb(214, 214, 32), PorterDuff.Mode.SRC_ATOP);
                 } else if ( v[index + i - 4].getText().toString().equals(temp) && i==j)
                 {
+                    ++found;
+
                     v[index + i - 4].getBackground().setColorFilter(Color.rgb(56, 120, 24), PorterDuff.Mode.SRC_ATOP);
                 }
             }
+
+
         }
+        if(found==5) {
+            Intent it=new Intent(this,Wordle.class);
+            startActivity(it);
+        }
+
     }
+
+
 }
