@@ -79,7 +79,8 @@ public class Wordle extends AppCompatActivity {
                 }
 
                 @Override // Sets focus on next Box
-                public void afterTextChanged(Editable editable) {
+                public void afterTextChanged(Editable editable)
+                {
                     int letterLength = array[finalI].getText().length();
                     if ( letterLength >= 1 )
                     {
@@ -87,13 +88,17 @@ public class Wordle extends AppCompatActivity {
                         array[finalI + 1].setFocusableInTouchMode(true);
 
                         if (finalI>=5 && finalI%5==0)
-                            testingLetters(finalI, array ,test);
+                        {
+                            testingLetters(finalI, array, test);
+                        }
                     }
                 }
             });
         }
     }
 
+
+    // Helper Function for testing letters
     private void testingLetters(int index , EditText[] v , String test){
         for ( int j = 0 ; j<test.length() ; ++j)
         {
