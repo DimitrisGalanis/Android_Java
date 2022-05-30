@@ -82,15 +82,15 @@ public class Wordle extends AppCompatActivity {
                 public void afterTextChanged(Editable editable)
                 {
                     int letterLength = array[finalI].getText().length();
-                    if ( letterLength >= 1 )
+                    if ( letterLength >= 1 && (finalI != array.length-6))
                     {
                         array[finalI + 1].requestFocusFromTouch();
                         array[finalI + 1].setFocusableInTouchMode(true);
 
-                        if (finalI>=5 && finalI%5==0)
-                        {
-                            testingLetters(finalI, array, test);
-                        }
+                    }
+                    if ((finalI>=5 && finalI%5==0))
+                    {
+                        testingLetters(finalI, array, test);
                     }
                 }
             });
