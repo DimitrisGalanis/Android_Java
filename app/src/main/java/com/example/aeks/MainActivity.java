@@ -45,8 +45,6 @@ public class MainActivity extends AppCompatActivity {
                         redirectWordle();
                         return true;
                     }
-                    else
-                        Toast.makeText(MainActivity.this,"LOGIN FAILED !!!",Toast.LENGTH_SHORT).show();
                 }
                 return false;
             }
@@ -77,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean checkCredential(TextView username , TextView password, DBHelper db)
     {
-      String username_string = username.getText().toString();
+      String username_string = username.getText().toString().trim();
       String password_string = password.getText().toString();
       boolean flag = false;
       if (TextUtils.isEmpty(username_string) || TextUtils.isEmpty(password_string))
