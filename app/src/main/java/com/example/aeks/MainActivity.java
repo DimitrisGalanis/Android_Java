@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.net.wifi.hotspot2.pps.Credential;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         TextView password =(TextView) findViewById(R.id.password);
         MaterialButton loginBTN = (MaterialButton) findViewById(R.id.login_BTN);
         TextView signup = (TextView) findViewById(R.id.sign_up);
+        DBHelper db = new DBHelper(this, null , null , 1);
 
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         loginBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(checkCredential(username,password))
+                if(checkCredential(username,password,db))
                 {
                     Toast.makeText(MainActivity.this, "LOGIN SUCCESSFUL !!!", Toast.LENGTH_SHORT).show();
                     redirectWordle();
@@ -83,10 +85,28 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private boolean checkCredential(TextView username , TextView password)
+    private boolean checkCredential(TextView username , TextView password, DBHelper db)
     {
-       return true;
-//       return (username.getText().toString().equals("admin") && password.getText().toString().equals("admin"));
+      String username_string = username.getText().toString();
+      String password_string = password.getText().toString();
+      boolean flag = false;
+      if (TextUtils.isEmpty(username_string) || TextUtils.isEmpty(password_string))
+      {
+          Toast.makeText(MainActivity.this, "Fields are empty", Toast.LENGTH_SHORT).show();
+      } else
+      {
+          if (db.findUser(username_string)==null)
+          {
+              Toast.makeText(MainActivity.this, "This user doesn't exist", Toast.LENGTH_SHORT).show();
+          } else if (!db.findUser(username_string).getPassword().equals(password_string)){
+              Toast.makeText(MainActivity.this, "Wrong Password , try again", Toast.LENGTH_SHORT).show();
+          } else
+          {
+              Toast.makeText(MainActivity.this, "Logged in Successfully", Toast.LENGTH_SHORT).show();
+              flag = true;
+          }
+      }
+      return flag;
     }
 
 }

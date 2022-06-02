@@ -40,16 +40,48 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     // Insert a new user
-    public void addUser(User user) {
+//    public void addUser(User user) {
+//        ContentValues values = new ContentValues();
+//        values.put(COLUMN_USERNAME, user.getUsername());
+//        values.put(COLUMN_PASSWORD, user.getPassword());
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        db.insert(TABLE_USERS, null, values);
+//        db.close();
+//    }
+
+
+    public void addUser(String username , String password) {
         ContentValues values = new ContentValues();
-        values.put(COLUMN_USERNAME, user.getUsername());
-        values.put(COLUMN_PASSWORD, user.getPassword());
+        values.put(COLUMN_USERNAME, username);
+        values.put(COLUMN_PASSWORD, password);
         SQLiteDatabase db = this.getWritableDatabase();
         db.insert(TABLE_USERS, null, values);
         db.close();
     }
 
     // find a user
+    public boolean checkUser(String username) {
+        String query = "SELECT * FROM " + TABLE_USERS + " WHERE " +
+                COLUMN_USERNAME + " = '" + username + "'";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        boolean flag ;
+//        User user = new User();
+        if (cursor.moveToFirst()) {
+            cursor.moveToFirst();
+//            user.setID(Integer.parseInt(cursor.getString(0)));
+//            user.setUsername(cursor.getString(1));
+//            user.setPassword(cursor.getString(2));
+            flag = true;
+            cursor.close();
+        } else {
+            flag = false;
+        }
+        db.close();
+        return flag;
+    }
+
+
     public User findUser(String username) {
         String query = "SELECT * FROM " + TABLE_USERS + " WHERE " +
                 COLUMN_USERNAME + " = '" + username + "'";
@@ -70,7 +102,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     // Delete a user
-    public boolean deleteProduct(String username) {
+    public boolean deleteUser(String username) {
 
         boolean result = false;
         User user = findUser(username);
