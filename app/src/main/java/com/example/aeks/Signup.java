@@ -45,7 +45,7 @@ public class Signup extends AppCompatActivity {
                         } else
                         {
                             db.addUser(usrnm , passwrd);
-                            Toast.makeText(Signup.this, "Signed up successfully", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Signup.this, "Sign up successful", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getApplicationContext(),Wordle.class);
                             startActivity(intent);
                         }

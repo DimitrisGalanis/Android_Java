@@ -5,9 +5,6 @@ package com.example.aeks;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.net.wifi.hotspot2.pps.Credential;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
@@ -43,31 +40,24 @@ public class MainActivity extends AppCompatActivity {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if ( keyCode == KeyEvent.KEYCODE_ENTER  && event.getAction() == KeyEvent.ACTION_DOWN)
                 {
-                        if(username.getText().toString().equals("admin") && password.getText().toString().equals("admin"))
-                        {
-                            Toast.makeText(MainActivity.this, "LOGIN SUCCESSFUL !!!", Toast.LENGTH_SHORT).show();
-                            redirectWordle();
-                        }
-                        else
-                        {
-                            Toast.makeText(MainActivity.this,"LOGIN FAILED !!!",Toast.LENGTH_SHORT).show();
-                        }
-                    return true;
+                    if(checkCredential(username,password,db))
+                    {
+                        redirectWordle();
+                        return true;
+                    }
+                    else
+                        Toast.makeText(MainActivity.this,"LOGIN FAILED !!!",Toast.LENGTH_SHORT).show();
                 }
-                else {
-                    return false;
-                }
+                return false;
             }
         });
+
 
         loginBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(checkCredential(username,password,db))
-                {
-                    Toast.makeText(MainActivity.this, "LOGIN SUCCESSFUL !!!", Toast.LENGTH_SHORT).show();
                     redirectWordle();
-                }
                 else
                     Toast.makeText(MainActivity.this,"LOGIN FAILED !!!",Toast.LENGTH_SHORT).show();
             }
@@ -102,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
               Toast.makeText(MainActivity.this, "Wrong Password , try again", Toast.LENGTH_SHORT).show();
           } else
           {
-              Toast.makeText(MainActivity.this, "Logged in Successfully", Toast.LENGTH_SHORT).show();
+              Toast.makeText(MainActivity.this, "Logged in Successful", Toast.LENGTH_SHORT).show();
               flag = true;
           }
       }
