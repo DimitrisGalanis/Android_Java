@@ -26,6 +26,14 @@ public class MainActivity extends AppCompatActivity {
         TextView username =(TextView) findViewById(R.id.username);
         TextView password =(TextView) findViewById(R.id.password);
         MaterialButton loginBTN = (MaterialButton) findViewById(R.id.login_BTN);
+        TextView signup = (TextView) findViewById(R.id.sign_up);
+
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                redirect_signUp();
+            }
+        });
 
 
         password.setOnKeyListener(new View.OnKeyListener() {
@@ -36,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                         if(username.getText().toString().equals("admin") && password.getText().toString().equals("admin"))
                         {
                             Toast.makeText(MainActivity.this, "LOGIN SUCCESSFUL !!!", Toast.LENGTH_SHORT).show();
-                            redirect(v);
+                            redirectWordle();
                         }
                         else
                         {
@@ -56,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                 if(checkCredential(username,password))
                 {
                     Toast.makeText(MainActivity.this, "LOGIN SUCCESSFUL !!!", Toast.LENGTH_SHORT).show();
-                    redirect(v);
+                    redirectWordle();
                 }
                 else
                     Toast.makeText(MainActivity.this,"LOGIN FAILED !!!",Toast.LENGTH_SHORT).show();
@@ -64,10 +72,14 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void redirect(View v){
-
+    private void redirectWordle(){
        Intent intent = new Intent(this,Wordle.class);
        startActivity(intent);
+    }
+
+    private void redirect_signUp (){
+        Intent intent = new Intent(this,Signup.class);
+        startActivity(intent);
     }
 
 
