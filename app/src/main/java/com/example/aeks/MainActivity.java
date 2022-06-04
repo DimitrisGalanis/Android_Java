@@ -56,8 +56,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(checkCredential(username,password,db))
                     redirectWordle();
-                else
-                    Toast.makeText(MainActivity.this,"LOGIN FAILED !!!",Toast.LENGTH_SHORT).show();
             }
         });
     }

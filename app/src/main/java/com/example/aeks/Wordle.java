@@ -8,6 +8,15 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 public class Wordle extends AppCompatActivity {
 
@@ -17,6 +26,7 @@ public class Wordle extends AppCompatActivity {
     EditText Et41, Et42, Et43, Et44, Et45;
     EditText Et51, Et52, Et53, Et54, Et55;
     EditText Et61, Et62, Et63, Et64, Et65;
+    static myWrapper wrap = new myWrapper();
 
 
     @Override
@@ -63,7 +73,32 @@ public class Wordle extends AppCompatActivity {
         array[30] = Et65 = findViewById(R.id.word6_5);
 
         //TODO Get Word from DB
-        String test = "ABCDE";
+        String test="ABCDE";
+
+
+
+        // Instantiate the RequestQueue.
+        RequestQueue queue = Volley.newRequestQueue(this);
+        String url = "https://random-word-api.herokuapp.com/word?length=5";
+
+        // Request a string response from the provided URL.
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        wrap.setMywordle(response);
+                        Toast.makeText(Wordle.this, wrap.getMywordle() , Toast.LENGTH_SHORT).show();
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(Wordle.this, "Error Occurred" , Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // Add the request to the RequestQueue.
+        queue.add(stringRequest);
+        Toast.makeText(Wordle.this, wrap.getMywordle() , Toast.LENGTH_SHORT).show();
 
         for (int i=1 ; i < array.length-5 ; ++i)
         {
@@ -90,7 +125,7 @@ public class Wordle extends AppCompatActivity {
                     }
                     if ((finalI>=5 && finalI%5==0))
                     {
-                        testingLetters(finalI, array, test);
+                        testingLetters(finalI, array, wrap.getMywordle());
                     }
                 }
             });
@@ -100,7 +135,7 @@ public class Wordle extends AppCompatActivity {
 
     // Helper Function for testing letters
     private void testingLetters(int index , EditText[] v , String test){
-        for ( int j = 0 ; j<test.length() ; ++j)
+        for ( int j = 0 ; j < test.length() ; ++j)
         {
             String temp = Character.toString(test.charAt(j));
             for (int i = 0; i < 5 ; ++i)
