@@ -135,17 +135,20 @@ public class Wordle extends AppCompatActivity {
 
     // Helper Function for testing letters
     private void testingLetters(int index , EditText[] v , String test){
+        boolean flag ;
         for ( int j = 0 ; j < test.length() ; ++j)
         {
             String temp = Character.toString(test.charAt(j));
+            flag = false;
             for (int i = 0; i < 5 ; ++i)
             {
-                if ( v[index + i - 4].getText().toString().equals(temp) && i!=j)
+                if ( v[index + i - 4].getText().toString().equals(temp) && i!=j && flag)
                 {
-                    v[index + i - 4].getBackground().setColorFilter(Color.rgb(214, 214, 32), PorterDuff.Mode.SRC_ATOP);
+                    v[index + i - 4].getBackground().setColorFilter(Color.rgb(214, 214, 32), PorterDuff.Mode.SRC_ATOP);     // yellow
                 } else if ( v[index + i - 4].getText().toString().equals(temp) && i==j)
                 {
-                    v[index + i - 4].getBackground().setColorFilter(Color.rgb(56, 120, 24), PorterDuff.Mode.SRC_ATOP);
+                    v[index + i - 4].getBackground().setColorFilter(Color.rgb(56, 120, 24), PorterDuff.Mode.SRC_ATOP);      //  green
+                    flag = true;
                 }
             }
         }

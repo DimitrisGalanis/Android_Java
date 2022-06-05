@@ -1,10 +1,10 @@
 package com.example.aeks;
 
 public class myWrapper {
-    String mywordle;
+    private String mywordle;
 
     public myWrapper() {
-        this.mywordle ="KAPPA";
+        this.mywordle ="";
     }
 
     public void setMywordle(String x){
