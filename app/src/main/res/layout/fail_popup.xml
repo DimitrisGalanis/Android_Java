@@ -1,0 +1,53 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="350dp"
+    android:layout_height="455dp"
+    android:background="@color/white"
+    android:layout_gravity="center"
+    >
+
+    <TextView
+        android:id="@+id/finish_L"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:textStyle="bold"
+        android:textColor="#bc3444"
+        android:text="@string/x"
+        android:layout_gravity="end"
+        android:gravity="center"
+        android:textSize="20sp"
+        />
+
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:textStyle="bold"
+        android:textColor="#bc3444"
+        android:text="@string/fail"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="20sp"
+        />
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="250dp"
+        android:background="@drawable/f"
+        android:layout_margin="25dp"
+        android:contentDescription="@string/trophy"
+        />
+
+    <Button
+        android:id="@+id/ID_playBTN_L"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:backgroundTint="#bc3444"
+        android:text="@string/play_again"
+        />
+
+
+</LinearLayout>
+
+

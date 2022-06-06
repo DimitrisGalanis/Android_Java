@@ -10,6 +10,12 @@
     <string name="tryBTN">Check Word</string>
     <string name="signupBTN">Sign Up</string>
     <string name="confirm_password">Confirm Password</string>
+    <string name="x">X</string>
+    <string name="won">Congratulations you Won</string>
+    <string name="play_again">Play Again</string>
+    <string name="trophy">Trophy</string>
+    <string name="fail">You Lost</string>
+
 
 
 </resources>
