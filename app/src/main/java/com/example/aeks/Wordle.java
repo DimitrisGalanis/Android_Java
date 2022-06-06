@@ -32,6 +32,7 @@ public class Wordle extends AppCompatActivity {
     EditText Et61, Et62, Et63, Et64, Et65;
     static myWrapper wrap = new myWrapper();
     Dialog winDialog,looseDialog;
+    Button check ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +40,6 @@ public class Wordle extends AppCompatActivity {
         setContentView(R.layout.activity_wordle);
         winDialog = new Dialog(this);
         looseDialog = new Dialog(this);
-
         EditText[] array = new EditText[31];
         array[0] = null;
         array[1] = Et11 =  findViewById(R.id.word1_1);
@@ -77,11 +77,6 @@ public class Wordle extends AppCompatActivity {
         array[28] = Et63 = findViewById(R.id.word6_3);
         array[29] = Et64 = findViewById(R.id.word6_4);
         array[30] = Et65 = findViewById(R.id.word6_5);
-
-
-        //TODO Get Word from DB
-        String test="ABCDE";
-
 
 
         // Instantiate the RequestQueue.
@@ -137,6 +132,26 @@ public class Wordle extends AppCompatActivity {
                 }
             });
         }
+
+        check = findViewById(R.id.tryBTN);
+        check.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Et61.setText(Character.toString(wrap.getMywordle().charAt(0)));
+                Et61.getBackground().setColorFilter(Color.rgb(229, 50, 50), PorterDuff.Mode.SRC_ATOP);
+                Et62.setText(Character.toString(wrap.getMywordle().charAt(1)));
+                Et62.getBackground().setColorFilter(Color.rgb(229, 50, 50), PorterDuff.Mode.SRC_ATOP);
+                Et63.setText(Character.toString(wrap.getMywordle().charAt(2)));
+                Et63.getBackground().setColorFilter(Color.rgb(229, 50, 50), PorterDuff.Mode.SRC_ATOP);
+                Et64.setText(Character.toString(wrap.getMywordle().charAt(3)));
+                Et64.getBackground().setColorFilter(Color.rgb(229, 50, 50), PorterDuff.Mode.SRC_ATOP);
+                Et65.setText(Character.toString(wrap.getMywordle().charAt(4)));
+                Et65.getBackground().setColorFilter(Color.rgb(229, 50, 50), PorterDuff.Mode.SRC_ATOP);
+            }
+        });
+
+
+
     }
 
 
@@ -205,18 +220,6 @@ public class Wordle extends AppCompatActivity {
                     redirectWordle();
                 }
             });
-
-
-            Et61.setText(Character.toString(wrap.getMywordle().charAt(0)));
-            Et61.getBackground().setColorFilter(Color.rgb(229, 50, 50), PorterDuff.Mode.SRC_ATOP);
-            Et62.setText(Character.toString(wrap.getMywordle().charAt(1)));
-            Et62.getBackground().setColorFilter(Color.rgb(229, 50, 50), PorterDuff.Mode.SRC_ATOP);
-            Et63.setText(Character.toString(wrap.getMywordle().charAt(2)));
-            Et63.getBackground().setColorFilter(Color.rgb(229, 50, 50), PorterDuff.Mode.SRC_ATOP);
-            Et64.setText(Character.toString(wrap.getMywordle().charAt(3)));
-            Et64.getBackground().setColorFilter(Color.rgb(229, 50, 50), PorterDuff.Mode.SRC_ATOP);
-            Et65.setText(Character.toString(wrap.getMywordle().charAt(4)));
-            Et65.getBackground().setColorFilter(Color.rgb(229, 50, 50), PorterDuff.Mode.SRC_ATOP);
         }
     }
 
